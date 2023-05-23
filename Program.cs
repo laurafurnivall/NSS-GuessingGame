@@ -29,25 +29,27 @@ void Main()
     {
         Random random = new Random();
         int secretNumber = random.Next(1, 101);
-        Console.WriteLine(secretNumber);
-        for (int i = 1; i <= skill; i++)
+        // Console.WriteLine(secretNumber);
+        for (int i = 0; i < skill; i++)
         {
+            Console.Write("Your guess:");
             string answer = Console.ReadLine();
-            Console.WriteLine($"Guess #{i}");
-            if (Int32.Parse(answer) == secretNumber)
+            Console.WriteLine($"Guess #{i + 1}");
+            if (int.Parse(answer) == secretNumber)
             {
                 Console.WriteLine($"You were right! The secrect number is {secretNumber}!");
-                break;
+                return;
             }
-            else if (Int32.Parse(answer) > secretNumber)
+            else if (int.Parse(answer) > secretNumber)
             {
                 Console.WriteLine("Incorrect. Guess lower!");
             }
-            else if (Int32.Parse(answer) < secretNumber)
+            else if (int.Parse(answer) < secretNumber)
             {
                 Console.WriteLine("Incorrect. Guess higher!");
             }
         }
+        Console.WriteLine("Too bad, so sad! You lose!");
     }
 }
 
